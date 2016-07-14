@@ -33,7 +33,7 @@ class AppAsset extends AssetBundle
             'themes/'.THEME.'/css/animate.min.css',
             'themes/'.THEME.'/css/ '.(YII_ENV_DEV ? 'lightbox.css' : 'lightbox.min.css'),
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'main.css' : 'main.min.css'),
-            'themes/'.THEME.'/css/presets/'.(YII_ENV_DEV ? 'presets.css' : 'presets.min.css'),
+            'themes/'.THEME.'/css/presets/'.(YII_ENV_DEV ? 'preset1.css' : 'preset1.min.css'),
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'responsive.css' : 'responsive.min.css'),
         ];
 
@@ -44,7 +44,7 @@ class AppAsset extends AssetBundle
             'themes/'.THEME.'/js/mousescroll.min.js',
             'themes/'.THEME.'/js/jquery.countTo.min.js',
             'themes/'.THEME.'/js/lightbox.min.js',
-            'themes/'.THEME.'/js/ '.(YII_ENV_DEV ? 'main.js' : 'main.min.js'),
+            'themes/'.THEME.'/js/'.(YII_ENV_DEV ? 'main.js' : 'main.min.js'),
         ];
     }
 }
