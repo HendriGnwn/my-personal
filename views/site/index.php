@@ -1,24 +1,35 @@
 <?php
 
-/* @var $this yii\web\View */
+use app\widgets\AboutUsWidget;
+use app\widgets\BlogWidget;
+use app\widgets\ContactWidget;
+use app\widgets\EducationWidget;
+use app\widgets\EmployementWidget;
+use app\widgets\PortfolioWidget;
+use app\widgets\ServiceWidget;
+use app\widgets\StatisticWidget;
+use app\widgets\TestimonialWdiget;
+use yii\web\View;
+
+/* @var $this View */
 
 $this->title = 'Web Developer';
 ?>
 
-<?= \app\widgets\ServiceWidget::widget() ?>
+<?= ServiceWidget::widget() ?>
 
-<?= \app\widgets\AboutUsWidget::widget() ?>
+<?= AboutUsWidget::widget() ?>
 
-<?= \app\widgets\EmployementWidget::widget() ?>
+<?= EmployementWidget::widget() ?>
 
-<?= \app\widgets\StatisticWidget::widget(); ?>
+<?= StatisticWidget::widget(); ?>
 
-<?= \app\widgets\PortfolioWidget::widget() ?>
+<?= PortfolioWidget::widget() ?>
 
-<?= \app\widgets\EducationWidget::widget() ?>
+<?= EducationWidget::widget() ?>
 
-<?= \app\widgets\TestimonialWdiget::widget() ?>
+<?= TestimonialWdiget::widget() ?>
 
-<?= \app\widgets\BlogWidget::widget() ?>
+<?= BlogWidget::widget() ?>
 
-<?= \app\widgets\ContactWidget::widget() ?>
+<?= ContactWidget::widget() ?>
