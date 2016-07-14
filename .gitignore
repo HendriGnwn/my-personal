@@ -29,3 +29,4 @@ phpunit.phar
 #db
 /config/db.php
 /config/active-theme.php
+/db
