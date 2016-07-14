@@ -31,21 +31,20 @@ class AppAsset extends AssetBundle
 
         $this->css = [
             'themes/'.THEME.'/css/animate.min.css',
-            'themes/'.THEME.'/css/lightbox.css',
-            'themes/'.THEME.'/css/main.css',
-            'themes/'.THEME.'/css/presets/preset1.css',
-            'themes/'.THEME.'/css/responsive.css',
+            'themes/'.THEME.'/css/ '.(YII_ENV_DEV ? 'lightbox.css' : 'lightbox.min.css'),
+            'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'main.css' : 'main.min.css'),
+            'themes/'.THEME.'/css/presets/'.(YII_ENV_DEV ? 'presets.css' : 'presets.min.css'),
+            'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'responsive.css' : 'responsive.min.css'),
         ];
 
         $this->js = [
             'themes/'.THEME.'/js/bootstrap.min.js',
-            //'http://maps.google.com/maps/api/js?sensor=true',
             'themes/'.THEME.'/js/jquery.inview.min.js',
             'themes/'.THEME.'/js/wow.min.js',
-            'themes/'.THEME.'/js/mousescroll.js',
-            'themes/'.THEME.'/js/jquery.countTo.js',
+            'themes/'.THEME.'/js/mousescroll.min.js',
+            'themes/'.THEME.'/js/jquery.countTo.min.js',
             'themes/'.THEME.'/js/lightbox.min.js',
-            'themes/'.THEME.'/js/main.js',
+            'themes/'.THEME.'/js/ '.(YII_ENV_DEV ? 'main.js' : 'main.min.js'),
         ];
     }
 }

@@ -17,7 +17,7 @@ class DefaultAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/'.(YII_ENV_DEV ? 'site.css' : 'site.min.css'),
     ];
     public $js = [];
     public $depends = [
