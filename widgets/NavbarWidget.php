@@ -19,7 +19,7 @@ use yii\helpers\Html;
  * @package app\widgets
  *
  * @author Hendri Gunawan
- * @email hendri.gnw@gmail.com
+ * @email <hendri.gnw@gmail.com>
  * 
  * @params category Menu->category
  */
@@ -64,7 +64,7 @@ class NavbarWidget extends Widget
 			case Menu::CATEGORY_LANDING:
 				$data = $this->dataLanding(); break;
 			case Menu::CATEGORY_MAIN:
-				$data = Menu::listMain(); break;
+				$data = $this->dataLanding(); break;
 			case Menu::CATEGORY_BACKEND:
 				$data = $this->dataBackend(); break;
 		}
@@ -135,7 +135,7 @@ class NavbarWidget extends Widget
 		$no = 1;
 		foreach($items as $item) {
 			$active = ($no==1) ? 'active' : '';
-			$data .= "<li class='scroll {$active}'>".Html::a($item->name, $item->url)."</li>";
+			$data .= "<li class='scroll {$active}'>".Html::a($item->name, $item->url, ['title'=>$item->name])."</li>";
 			$no++;
 		}
 		

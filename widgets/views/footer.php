@@ -13,8 +13,8 @@ $bioProfile = Yii::$app->bioProfile->data;
     <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
         <div class="container text-center">
             <div class="footer-logo">
-                <?= Html::a(Html::img($this->theme->getUrl('images/logo.png')), Url::home()) ?>
-<!--                <h2>--><?//= Html::a(Yii::$app->name, Url::home()) ?><!--</h2>-->
+                <?//= Html::a(Html::img($this->theme->getUrl('images/logo.png')), Url::home()) ?>
+                <h2><?= Html::a(Yii::$app->name, Url::home()) ?></h2>
             </div>
             <div class="social-icons">
                 <ul>
@@ -34,7 +34,7 @@ $bioProfile = Yii::$app->bioProfile->data;
                     <p>&copy; 2016 Oxygen Theme.</p>
                 </div>
                 <div class="col-sm-6">
-                    <p class="pull-right">Crafted by <?= Html::a(Yii::$app->name, Yii::$app->params['mainDomain']) ?></p>
+                    <p class="pull-right">Crafted by <?= Html::a(Yii::$app->name, Yii::$app->params['mainDomain'], ['title'=>Yii::$app->name]) ?></p>
                 </div>
             </div>
         </div>
