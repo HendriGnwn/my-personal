@@ -73,9 +73,9 @@ use yii\widgets\ActiveForm;
 
 			<?= $form->field($model, 'metakey_en')->textInput(['maxlength' => true]) ?>
 
-			<?= $form->field($model, 'metadesc')->textarea(['rows' => 6]) ?>
+			<?= $form->field($model, 'metadesc')->textarea(['rows' => 6, 'maxlength'=>150]) ?>
 
-			<?= $form->field($model, 'metadesc_en')->textarea(['rows' => 6]) ?>
+			<?= $form->field($model, 'metadesc_en')->textarea(['rows' => 6, 'maxlength'=>150]) ?>
 
 			<?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
