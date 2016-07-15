@@ -1,17 +1,18 @@
 <?php
-/** Landing Page */
+/** Main Page */
 
-/* @var $this \yii\web\View */
+/* @var $this View */
 /* @var $content string */
 
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\FontAsset;
+use app\widgets\FooterWidget;
+use app\widgets\NavbarWidget;
+use yii\helpers\Html;
+use app\components\View;
 
-$this->title = $this->title . (empty($this->title) ? '' : ' | ') . Yii::$app->name;
+$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->name;
+$this->registerMetaTitle($this->title);
 
 AppAsset::register($this);
 FontAsset::register($this);
@@ -21,9 +22,10 @@ FontAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=<?= Yii::$app->charset ?>" />
     <?php $this->head() ?>
 </head>
 <body>
@@ -34,14 +36,14 @@ FontAsset::register($this);
 <!--/.preloader-->
 
 <header id="home">
-    <?= \app\widgets\NavbarWidget::widget() ?>
+    <?= NavbarWidget::widget() ?>
 </header><!--/#home-->
 
 <div class="container" style="background:#fafaf0;">
     <?= $content ?>
 </div>
 
-<?= \app\widgets\FooterWidget::widget() ?>
+<?= FooterWidget::widget() ?>
 
 <!--button back to top-->
 <?=Html::a("<i class='fa fa-arrow-circle-up'></i>", '', ['style'=>'display:inline;', 'class'=>'back-to-top'])?>

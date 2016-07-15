@@ -1,21 +1,18 @@
 <?php
-/** Landing Page */
+/** Login Page */
 
 /* @var $this View */
 /* @var $content string */
 
 use app\assets\FontAsset;
-use app\assets\LandingAsset;
-use app\widgets\CarouselWidget;
-use app\widgets\FooterWidget;
-use app\widgets\NavbarWidget;
-use yii\helpers\Html;
+use app\assets\LoginAsset;
 use app\components\View;
+use yii\helpers\Html;
 
 $this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->name;
 $this->registerMetaTitle($this->title);
 
-LandingAsset::register($this);
+LoginAsset::register($this);
 FontAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -33,21 +30,18 @@ FontAsset::register($this);
 <?php $this->beginBody() ?>
 
 <!--.preloader-->
-<div class="preloader"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+<div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
 <!--/.preloader-->
 
 <header id="home">
-    <?= CarouselWidget::widget() ?>
-    <?= NavbarWidget::widget() ?>
+    <div class="pen-title wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		<h1><?=Yii::$app->name?></h1><span>Please Login to sign in to the administrator page</span>
+	</div>
 </header><!--/#home-->
 
-<?= $content ?>
-
-<?= FooterWidget::widget() ?>
-
-<!--button back to top-->
-<?=Html::a("<i class='fa fa-arrow-circle-up'></i>", '', ['style'=>'display:inline;', 'class'=>'back-to-top'])?>
-<!--/.button back to top-->
+<div class="container parallax">
+    <?= $content ?>
+</div>
 
 <?php $this->endBody() ?>
 </body>
