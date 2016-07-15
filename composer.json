@@ -24,7 +24,8 @@
         "johnitvn/yii2-ajaxcrud": "*",
         "kartik-v/yii2-widget-select2": "*",
         "yiisoft/yii2-imagine": "~2.0.0",
-		"2amigos/yii2-ckeditor-widget" : "*"
+		"2amigos/yii2-ckeditor-widget" : "*",
+		"mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
