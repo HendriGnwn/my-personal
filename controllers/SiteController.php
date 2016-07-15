@@ -4,12 +4,11 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     public function behaviors()
     {
@@ -49,12 +48,25 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = 'landing';
-        return $this->render('index');
+		$this->layout = 'landing';
+		
+		$bioProfile = Yii::$app->bioProfile->data;
+		
+		$this->view->registerMetaKeywords($bioProfile->metakey);
+		$this->view->registerMetaDescription($bioProfile->metadesc);
+		
+		$socialMedia = [
+			'title' => 'Web Developer - '. Yii::$app->name,
+			'description' => $bioProfile->metadesc,
+		];
+		$this->view->registerMetaSocialMedia($socialMedia);
+		
+		return $this->render('index');
     }
 
     public function actionLogin()
     {
+		$this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
             Yii::$app->user->setReturnUrl(['hen-admin/default/index']);
             return $this->goBack();

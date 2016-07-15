@@ -9,7 +9,6 @@
 namespace app\controllers;
 
 use Yii;
-use yii\web\Controller;
 use yii\web\HttpException;
 
 /**
@@ -18,8 +17,8 @@ use yii\web\HttpException;
  * @author Hendri Gunawan
  * @email hendri.gnw@gmail.com
  */
-class PortfolioController extends Controller {
-	
+class PortfolioController extends BaseController
+{
 	public function actionAjaxDetail()
 	{
 		if(Yii::$app->request->isAjax) {
