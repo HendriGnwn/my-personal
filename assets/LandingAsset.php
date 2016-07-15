@@ -31,9 +31,9 @@ class LandingAsset extends AssetBundle
         $this->css = [
             'themes/'.THEME.'/css/animate.min.css',
             'themes/'.THEME.'/css/lightbox.min.css',
-            'themes/'.THEME.'/css/ '.(YII_ENV_DEV ? 'lightbox.css' : 'lightbox.min.css'),
+            'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'lightbox.css' : 'lightbox.min.css'),
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'main.css' : 'main.min.css'),
-            'themes/'.THEME.'/css/presets/'.(YII_ENV_DEV ? 'presets.css' : 'presets.min.css'),
+            'themes/'.THEME.'/css/presets/'.(YII_ENV_DEV ? 'preset1.css' : 'preset1.min.css'),
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'responsive.css' : 'responsive.min.css'),
         ];
 

@@ -10,10 +10,10 @@ namespace app\assets;
 use yii\web\AssetBundle;
 
 /**
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * @author Hendri Gunawan
+ * @email <hendri.gnw@gmail.com>
  */
-class AppAsset extends AssetBundle
+class LoginAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
@@ -30,11 +30,14 @@ class AppAsset extends AssetBundle
         parent::init();
 
         $this->css = [
-            'themes/'.THEME.'/css/animate.min.css',
+			'themes/'.THEME.'/css/animate.min.css',
+            //'themes/'.THEME.'/css/lightbox.min.css',
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'lightbox.css' : 'lightbox.min.css'),
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'main.css' : 'main.min.css'),
             'themes/'.THEME.'/css/presets/'.(YII_ENV_DEV ? 'preset1.css' : 'preset1.min.css'),
             'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'responsive.css' : 'responsive.min.css'),
+            'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'reset.css' : 'reset.min.css'),
+            'themes/'.THEME.'/css/'.(YII_ENV_DEV ? 'login.css' : 'login.min.css'),
         ];
 
         $this->js = [
