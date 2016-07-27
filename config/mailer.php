@@ -7,16 +7,27 @@
  */
 
 return [
-    'class'            => 'zyx\phpmailer\Mailer',
-    'viewPath'         => '@app/mail',
-    'useFileTransport' => false,
-    'config'           => [
-        'mailer'     => 'smtp',
-        'host'       => 'smtp.gmail.com',
-        'port'       => '465',
-        'smtpsecure' => 'ssl',
-        'smtpauth'   => true,
-        'username'   => 'hendrigunawan195@gmail.com',
-        'password'   => 'hendrigunawan195694155',
-    ],
+    'class' => 'zyx\phpmailer\Mailer',
+	'viewPath' => '@app/mail',
+	'useFileTransport' => false,
+	'config' => [
+//		'mailer' => 'smtp',
+//		'host' => 'serverus1.computesta.com',
+//		'port' => '465',
+//		'smtpsecure' => 'ssl',
+//		'smtpauth' => true,
+//		'username' => 'test@project.computesta.com',
+//		'password' => 'test123!',
+		'mailer' => 'smtp',
+		'host' => 'smtp.live.com',
+		'port' => '587',
+		'smtpsecure' => 'tls',
+		'smtpauth' => true,
+		//'smtpdebug' => 1,
+		'username' => 'hendrigunawan195@outlook.com',
+		'password' => 'hendri195',
+	],
+	'messageConfig' => [
+		'from' => ['hendri.gnw@gmail.com' => 'hendrigunawan.com']
+	],
 ];
