@@ -61,7 +61,17 @@ class SiteController extends BaseController
 		];
 		$this->view->registerMetaSocialMedia($socialMedia);
 		
-		return $this->render('index');
+		$model = new ContactForm();
+		
+        if ($model->load(Yii::$app->request->post()) && $model->contact()) {
+            Yii::$app->session->setFlash('contactFormSubmitted', Yii::$app->params['subjectMailContact']);
+
+            return $this->refresh('#contact');
+        }
+		
+		return $this->render('index', [
+			'contactModel' => $model
+		]);
     }
 
     public function actionLogin()
@@ -81,11 +91,11 @@ class SiteController extends BaseController
             'model' => $model,
         ]);
     }
-
+	
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->post()) && $model->contact()) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
