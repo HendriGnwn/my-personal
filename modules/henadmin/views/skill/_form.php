@@ -16,6 +16,8 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'statistic')->textInput() ?>
+	
+	<?= $form->field($model, 'order')->textInput() ?>
 
     <?php
     $selectOptions = ['data'=>Skill::statusLabels(), 'pluginOptions'=>['allowClear'=>true], 'options'=>['prompt'=>'--Choose One--']];

@@ -14,6 +14,7 @@ use app\helpers\DetailViewHelper;
             'id',
             'name',
             'statistic',
+			'order',
             [
                 'attribute' => 'status',
                 'value' => $model->getStatusWithStyle(),

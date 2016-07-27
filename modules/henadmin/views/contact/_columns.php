@@ -23,10 +23,10 @@ return [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'email',
     ],
-//    [
-//        'class'=>'\kartik\grid\DataColumn',
-//        'attribute'=>'message',
-//    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'subject',
+    ],
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'status',

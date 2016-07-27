@@ -17,6 +17,8 @@ use app\models\Contact;
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+	
+	<?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'message')->textarea(['rows' => 6]) ?>
 

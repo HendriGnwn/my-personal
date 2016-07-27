@@ -14,6 +14,7 @@ use app\helpers\DetailViewHelper;
             'id',
             'name',
             'email:email',
+			'subject',
             'message:ntext',
             [
                 'attribute' => 'status',

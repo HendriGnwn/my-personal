@@ -3,12 +3,12 @@
 namespace app\modules\henadmin;
 
 use Yii;
-use yii\filters\AccessControl;
+use yii\base\Module;
 
 /**
  * hen-admin module definition class
  */
-class henadmin extends \yii\base\Module
+class henadmin extends Module
 {
     /**
      * @inheritdoc
@@ -32,7 +32,7 @@ class henadmin extends \yii\base\Module
                 'class' => 'app\components\View',
             ],
         ]);
-        
+		
         if (Yii::$app->user->getIsGuest()) {
             Yii::$app->user->loginRequired();
         }
