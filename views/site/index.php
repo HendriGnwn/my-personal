@@ -32,4 +32,4 @@ $this->title = 'Web Developer';
 
 <?= BlogWidget::widget() ?>
 
-<?= ContactWidget::widget() ?>
+<?= ContactWidget::widget(['model'=>$contactModel]) ?>
