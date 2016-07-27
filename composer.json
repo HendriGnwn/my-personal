@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.5",
@@ -25,7 +25,8 @@
         "kartik-v/yii2-widget-select2": "*",
         "yiisoft/yii2-imagine": "~2.0.0",
 		"2amigos/yii2-ckeditor-widget" : "*",
-		"mobiledetect/mobiledetectlib": "^2.8"
+		"mobiledetect/mobiledetectlib": "^2.8",
+		"amilna/yii2-blog": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
