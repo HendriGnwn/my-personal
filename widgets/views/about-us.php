@@ -13,30 +13,20 @@
             </div>
             <div class="col-sm-6">
                 <div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                        <p class="lead">User Experiances</p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="95">95%</div>
-                        </div>
-                    </div>
-                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
-                        <p class="lead">Web Design</p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="75">75%</div>
-                        </div>
-                    </div>
-                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <p class="lead">Programming</p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="60">60%</div>
-                        </div>
-                    </div>
-                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <p class="lead">Fun</p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="85">85%</div>
-                        </div>
-                    </div>
+					
+					<?php 
+						$dataWowDelay = 2;
+						foreach($skill as $item) {
+							$dataWowDelay++;
+					?>
+						<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="<?= $dataWowDelay ?>00ms">
+							<p class="lead"><?= $item->name ?></p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="<?= $item->statistic ?>"><?= $item->statistic ?>%</div>
+							</div>
+						</div>
+					<?php } ?>
+					
                 </div>
             </div>
         </div>

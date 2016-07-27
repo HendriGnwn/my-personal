@@ -2,12 +2,31 @@
 
 namespace app\widgets;
 
+use app\models\Skill;
+
 class AboutUsWidget extends BaseWidget
 {
     public function run()
     {
         return $this->render('about-us', [
-			'bioProfile' => $this->bioProfile
+			'bioProfile' => $this->bioProfile,
+			'skill' => $this->dataSkill()
 		]);
     }
+	
+	/**
+	 * List data Skill
+	 * 
+	 * @return boolean
+	 */
+	private function dataSkill()
+	{
+		$query = Skill::find()->ordered()->all();
+		
+		if(!$query) {
+			return false;
+		}
+		
+		return $query;
+	}
 }

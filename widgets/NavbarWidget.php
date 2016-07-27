@@ -64,7 +64,7 @@ class NavbarWidget extends Widget
 			case Menu::CATEGORY_LANDING:
 				$data = $this->dataLanding(); break;
 			case Menu::CATEGORY_MAIN:
-				$data = $this->dataLanding(); break;
+				$data = $this->dataMain(); break;
 			case Menu::CATEGORY_BACKEND:
 				$data = $this->dataBackend(); break;
 		}
@@ -136,6 +136,32 @@ class NavbarWidget extends Widget
 		foreach($items as $item) {
 			$active = ($no==1) ? 'active' : '';
 			$data .= "<li class='scroll {$active}'>".Html::a($item->name, $item->url, ['title'=>$item->name])."</li>";
+			$no++;
+		}
+		
+		return $data;
+	}
+	
+	/**
+	 * Data Main
+	 * 
+	 * @return string
+	 */
+	private function dataMain()
+	{
+		$items = Menu::listMain();
+		
+		
+		
+		$data = null;
+		if(!$items) {
+			return $data;
+		}
+		
+		$no = 1;
+		foreach($items as $item) {
+			$active = (Yii::$app->request->url==$item->url) ? 'active' : '';
+			$data .= "<li class='scroll {$active}'>".Html::a($item->name, Yii::$app->urlManager->createUrl([$item->url]), ['title'=>$item->name])."</li>";
 			$no++;
 		}
 		
