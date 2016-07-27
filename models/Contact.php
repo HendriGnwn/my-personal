@@ -36,11 +36,11 @@ class Contact extends BaseActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'message'], 'required'],
+            [['name', 'email', 'subject', 'message'], 'required'],
             [['message'], 'string'],
             [['status', 'created_by', 'updated_by'], 'integer'],
             [['status'], 'default', 'value'=>self::STATUS_NEW],
-            [['status','created_at', 'updated_at'], 'safe'],
+            [['subject', 'status','created_at', 'updated_at'], 'safe'],
             [['name', 'email'], 'string', 'max' => 100],
             ['email', 'email'],
         ];

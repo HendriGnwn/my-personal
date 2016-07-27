@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "skill".
  *
@@ -16,7 +14,7 @@ use Yii;
  * @property string $updated_at
  * @property integer $updated_by
  */
-class Skill extends \app\models\BaseActiveRecord
+class Skill extends BaseActiveRecord
 {
     /**
      * @inheritdoc
@@ -37,6 +35,7 @@ class Skill extends \app\models\BaseActiveRecord
             [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 100],
             ['statistic', 'integer', 'min'=>0, 'max'=>100],
+			['order', 'default', 'value'=>0],
             ['status', 'default', 'value'=>self::STATUS_ACTIVE],
         ];
     }
@@ -51,6 +50,7 @@ class Skill extends \app\models\BaseActiveRecord
             'name' => 'Name',
             'statistic' => 'Statistic',
             'status' => 'Status',
+			'order' => 'Order',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',

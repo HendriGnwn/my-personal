@@ -12,8 +12,9 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
+	public $phone;
     public $subject;
-    public $body;
+    public $message;
     public $verifyCode;
 
 
@@ -24,7 +25,8 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'subject', 'message', 'phone'], 'required'],
+			[['phone'], 'integer'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
@@ -44,21 +46,40 @@ class ContactForm extends Model
 
     /**
      * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
+	 * 
      * @return boolean whether the model passes validation
      */
-    public function contact($email)
+    public function contact()
     {
-        if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
-
-            return true;
+		$subject = Yii::$app->params['subjectMail'].' '.Yii::$app->params['subjectMailContact'];
+        if ($this->validate() && $this->saveToDb()) {
+			
+			$email = [$this->email, Yii::$app->params['adminEmail']];
+            $sendMail = Yii::$app->mailer->compose('contact/contact', ['model' => $this])
+					->setTo($email)
+					->setSubject($subject)
+					->send();
+			
+			if($sendMail) {
+				return true;
+			}
         }
         return false;
     }
+	
+	/**
+	 * save data to db (table contact)
+	 * 
+	 * @return boolean
+	 */
+	private function saveToDb()
+	{
+		$contact = new Contact();
+		$contact->attributes = $this->attributes;
+		
+		if($contact->validate()) {
+			return $contact->save();
+		}
+		return false;
+	}
 }
