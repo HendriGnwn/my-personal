@@ -10,7 +10,7 @@ $theme = require(__DIR__ . '/theme.php');
 $theme = new ThemeConfig(THEME);
 
 $config = [
-    'id' => 'basic',
+    'id' => 'hendrigunawan-yii2-basic',
     'name' => 'Hendri Gunawan',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -20,7 +20,11 @@ $config = [
         ],
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
-        ]
+        ],
+		'blog' => [
+			'class' => 'amilna\blog\Module',
+			'userClass' => 'app\models\User',
+		],
     ],
     'components' => [
         'request' => [

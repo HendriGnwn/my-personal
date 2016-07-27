@@ -12,11 +12,11 @@ return [
     'useFileTransport' => false,
     'config'           => [
         'mailer'     => 'smtp',
-        'host'       => 'serverus1.computesta.com',
+        'host'       => 'smtp.gmail.com',
         'port'       => '465',
         'smtpsecure' => 'ssl',
         'smtpauth'   => true,
-        'username'   => 'test@project.computesta.com',
-        'password'   => 'test123!',
+        'username'   => 'hendrigunawan195@gmail.com',
+        'password'   => 'hendrigunawan195694155',
     ],
 ];
