@@ -5,8 +5,8 @@ jQuery(function($) {
     $(window).load(function(){
         preloader.remove();
     });
-
-    //#main-slider
+	
+	//#main-slider
     var slideHeight = $(window).height();
     $('#home-slider .item').css('height',slideHeight);
 
@@ -120,19 +120,19 @@ jQuery(function($) {
     });
 
     // Contact form
-    var form = $('#main-contact-form');
-    form.submit(function(event){
-        event.preventDefault();
-        var form_status = $('<div class="form_status"></div>');
-        $.ajax({
-            url: $(this).attr('action'),
-            beforeSend: function(){
-                form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
-            }
-        }).done(function(data){
-            form_status.html('<p class="text-success">Thank you for contact us. As early as possible  we will contact you</p>').delay(3000).fadeOut();
-        });
-    });
+//    var form = $('#main-contact-form');
+//    form.submit(function(event){
+//        event.preventDefault();
+//        var form_status = $('<div class="form_status"></div>');
+//        $.ajax({
+//            url: $(this).attr('action'),
+//            beforeSend: function(){
+//                form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
+//            }
+//        }).done(function(data){
+//            form_status.html('<p class="text-success">Thank you for contact us. As early as possible  we will contact you</p>').delay(3000).fadeOut();
+//        });
+//    });
 
     //Google Map
     var latitude = $('#google-map').data('latitude')
@@ -175,5 +175,12 @@ jQuery(function($) {
         jQuery('html, body').animate({scrollTop: 0}, 600);
         return false;
     });
+	
+	/** Scroll to hashtag **/
+	var hash = window.location.hash;
+	if(hash!=''){
+		$('html, body').animate({scrollTop: $(hash).offset().top - 75}, 1000);
+		//return false;
+	}
 
 });
