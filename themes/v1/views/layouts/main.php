@@ -6,10 +6,11 @@
 
 use app\assets\AppAsset;
 use app\assets\FontAsset;
+use app\components\View;
+use app\models\Menu;
 use app\widgets\FooterWidget;
 use app\widgets\NavbarWidget;
 use yii\helpers\Html;
-use app\components\View;
 
 $this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->name;
 $this->registerMetaTitle($this->title);
@@ -36,7 +37,7 @@ FontAsset::register($this);
 <!--/.preloader-->
 
 <header id="home">
-    <?= NavbarWidget::widget() ?>
+    <?= NavbarWidget::widget(['category'=> Menu::CATEGORY_MAIN]) ?>
 </header><!--/#home-->
 
 <div class="container" style="background:#fafaf0;">
