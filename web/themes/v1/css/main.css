@@ -142,7 +142,7 @@ section {
 
 #home-slider .caption h1 {
   color: #fff;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 700;
   margin-bottom: 30px;
 }
@@ -287,25 +287,24 @@ section {
   transition: background-color 0.2s ease;
 }
 
-.our-services .col-sm-4:hover .service-icon {
+.our-services .col-sm-6:hover .service-icon {
   background-color: #333;
 }
 
-.our-services .col-sm-4 {
+.our-services .col-sm-6 {
   border-right:1px solid #f2f2f2;
   border-bottom:1px solid #f2f2f2;
   padding-bottom: 50px;
 }
 
-.our-services .col-sm-4:nth-child(4), 
-.our-services .col-sm-4:nth-child(5), 
-.our-services .col-sm-4:nth-child(6) {
+.our-services .col-sm-6:nth-child(3), 
+.our-services .col-sm-6:nth-child(4) {
   border-bottom:0;
   padding-top: 60px;
 }
 
-.our-services .col-sm-4:nth-child(3), 
-.our-services .col-sm-4:nth-child(6) {
+.our-services .col-sm-6:nth-child(2), 
+.our-services .col-sm-6:nth-child(4) {
   border-right:0;
 }
 
