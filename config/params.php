@@ -6,6 +6,7 @@ return [
 	'signatureEmailName' => 'Hendri Gunawan',
     'mainDomain' => 'http://www.hendrigunawan.com',
 	'mobileDomain' => 'http://m.hendrigunawan.com',
+	'domain' => 'hendrigunawan.com',
 	'defaultWebPictureUrl' => '@web/data/images/picture-main.jpg',
 	'defaultWebPicture' => 'picture-main.jpg',
     'jsBlock' => 0,

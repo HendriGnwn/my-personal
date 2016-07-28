@@ -9,7 +9,7 @@ use app\assets\LoginAsset;
 use app\components\View;
 use yii\helpers\Html;
 
-$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->name;
+$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->params['domain'];
 $this->registerMetaTitle($this->title);
 
 LoginAsset::register($this);

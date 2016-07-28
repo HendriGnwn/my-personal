@@ -12,7 +12,7 @@ use app\widgets\FooterWidget;
 use app\widgets\NavbarWidget;
 use yii\helpers\Html;
 
-$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->name;
+$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->params['domain'];
 $this->registerMetaTitle($this->title);
 
 AppAsset::register($this);

@@ -13,7 +13,7 @@ use yii\web\View;
 
 /* @var $this View */
 
-$this->title = 'Web Developer';
+$this->title = "I'm Web Developer and Web Designer";
 ?>
 
 <?= ServiceWidget::widget() ?>

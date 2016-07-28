@@ -12,7 +12,7 @@ use app\widgets\NavbarWidget;
 use yii\helpers\Html;
 use app\components\View;
 
-$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->name;
+$this->title = $this->title . (empty($this->title) ? '' : ' - ') . Yii::$app->params['domain'];
 $this->registerMetaTitle($this->title);
 
 LandingAsset::register($this);
