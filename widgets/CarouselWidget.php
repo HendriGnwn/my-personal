@@ -14,6 +14,19 @@ class CarouselWidget extends Widget
 {
     public function run()
     {
-        return $this->render('carousel');
+        return $this->render('carousel', [
+			'carousels' => $this->listCarousel(),
+		]);
     }
+	
+	private function listCarousel()
+	{
+		$query = \app\models\Carousel::find()->active()->ordered()->all();
+		
+		if(!$query) {
+			return false;
+		}
+		
+		return $query;
+	}
 }

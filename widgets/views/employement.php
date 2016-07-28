@@ -12,36 +12,27 @@
         </div>
         <div class="pricing-table">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
-                        <h3>2014 - 2015</h3>
-                        <div class="price">
-                            $49<span>/Month</span>
-                        </div>
-                        <ul>
-                            <li>Free Setup</li>
-                            <li>10GB Storage</li>
-                            <li>100GB Bandwith</li>
-                            <li>5 Products</li>
-                        </ul>
-                        <a href="#" class="btn btn-lg btn-primary">Sign up</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single-table featured wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
-                        <h3>2015 - Now</h3>
-                        <div class="price">
-                            $29<span>/Month</span>
-                        </div>
-                        <ul>
-                            <li>Free Setup</li>
-                            <li>10GB Storage</li>
-                            <li>100GB Bandwith</li>
-                            <li>5 Products</li>
-                        </ul>
-                        <a href="#" class="btn btn-lg btn-primary">Sign up</a>
-                    </div>
-                </div>
+				<?php
+					foreach($employements as $item) {
+						$classFeatured = ($item->isActiveEmployementStatus()) ? 'featured' : '';
+				?>
+					<div class="col-sm-6">
+						<div class="single-table <?= $classFeatured ?> wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
+							<h3><?= $item->getDateRange() ?></h3>
+							<div class="price">
+								<?= $item->name ?>
+							</div>
+							<?php if($item->isCompany()) { ?>
+							<div class="price">
+								<span><?= $item->company ?></span>
+							</div>
+							<?php } ?>
+							<ul>
+								<?= $item->description ?>
+							</ul>
+						</div>
+					</div>
+				<?php } ?>
             </div>
         </div>
     </div>

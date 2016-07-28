@@ -21,7 +21,7 @@ class AboutUsWidget extends BaseWidget
 	 */
 	private function dataSkill()
 	{
-		$query = Skill::find()->ordered()->all();
+		$query = Skill::find()->active()->ordered()->all();
 		
 		if(!$query) {
 			return false;

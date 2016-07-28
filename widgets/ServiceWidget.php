@@ -14,6 +14,18 @@ class ServiceWidget extends BaseWidget
     {
         return $this->render('service', [
 			'bioProfile' => $this->getBioProfile(),
+			'services' => $this->listService(),
 		]);
     }
+	
+	private function listService()
+	{
+		$query = \app\models\Service::find()->active()->all();
+		
+		if(!$query) {
+			return false;
+		}
+		
+		return $query;
+	}
 }

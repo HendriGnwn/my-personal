@@ -16,11 +16,11 @@ class StatisticWidget extends Widget
     public function run()
     {
         return $this->render('statistic', [
-			'items' => $this->getData(),
+			'items' => $this->listStatistic(),
 		]);
     }
 	
-	private function getData()
+	private function listStatistic()
 	{
 		$query = Statistic::find()->active()->ordered()->all();
 		if(!$query) {
