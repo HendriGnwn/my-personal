@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use app\helpers\StringHelper;
 use yii\helpers\Html;
 
 /**
@@ -10,12 +10,14 @@ use yii\helpers\Html;
  *
  * @property integer $id
  * @property string $name
+ * @property string $company
  * @property string $description
  * @property string $url
  * @property string $start_date
  * @property string $end_date
  * @property integer $employement_status
  * @property integer $status
+ * @property integer $order
  * @property string $created_at
  * @property integer $created_by
  * @property string $updated_at
@@ -38,13 +40,13 @@ class Employement extends BaseActiveRecord
     {
         return [
             [['name', 'description', 'url', 'start_date'], 'required'],
-            [['id', 'employement_status', 'status', 'created_by', 'updated_by'], 'integer'],
+            [['id', 'employement_status', 'status', 'created_by', 'updated_by', 'order'], 'integer'],
             [['description'], 'string'],
-            [['start_date', 'end_date', 'created_at', 'updated_at'], 'safe'],
+            [['company', 'start_date', 'end_date', 'created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 100],
             [['url'], 'string', 'max' => 150],
-            ['employement_status', 'default', 'value'=>self::STATUS_ACTIVE],
-            ['status', 'default', 'value'=>self::STATUS_ACTIVE],
+            [['employement_status', 'status'], 'default', 'value'=>self::STATUS_ACTIVE],
+			['order', 'default', 'value'=> 0]
         ];
     }
 
@@ -84,5 +86,26 @@ class Employement extends BaseActiveRecord
             case self::STATUS_NON_ACTIVE: return Html::label(self::statusLabels()[$this->employement_status], null, ['class'=>'label label-danger']);
         }
     }
-
+	
+	public function isCompany()
+	{
+		return $this->company != null || $this->company != '';
+	}
+	
+	public function isActiveEmployementStatus()
+	{
+		return $this->employement_status == self::STATUS_ACTIVE;
+	}
+	
+	public function getDateRange()
+	{
+		$startDate = StringHelper::formatDate($this->start_date, 'Y');
+				
+		if(empty($this->end_date) || $this->end_date=='') {
+			return $startDate.' - NOW';
+		}
+		
+		$endDate = StringHelper::formatDate($this->end_date, 'Y');
+		return $startDate .' - '. $endDate;
+	}
 }

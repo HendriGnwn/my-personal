@@ -100,30 +100,15 @@ class ServiceController extends BaseController
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
         
                 ];         
-            }else if($model->load($request->post())){
-                $model->iconFile = UploadedFile::getInstance($model, 'iconFile');
+            }else if($model->load($request->post()) && $model->save()){
+				return [
+					'forceReload' => '#crud-datatable-pjax',
+					'title' => "Create new Service",
+					'content' => '<span class="text-success">Create Service success</span>',
+					'footer' => Html::button('Close', ['class' => 'btn btn-default pull-left', 'data-dismiss' => "modal"]) .
+						Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
 
-                if($model->validate() && $model->validateIconFile()) {
-                    $model->save();
-                    return [
-                        'forceReload' => '#crud-datatable-pjax',
-                        'title' => "Create new Service",
-                        'content' => '<span class="text-success">Create Service success</span>',
-                        'footer' => Html::button('Close', ['class' => 'btn btn-default pull-left', 'data-dismiss' => "modal"]) .
-                            Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-
-                    ];
-                } else {
-                    return [
-                        'title'=> "Create new Tag",
-                        'content'=>$this->renderAjax('create', [
-                            'model' => $model,
-                        ]),
-                        'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                            Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
-
-                    ];
-                }
+				];
             }else{           
                 return [
                     'title'=> "Create new Service",
@@ -139,13 +124,8 @@ class ServiceController extends BaseController
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post())) {
-                $model->iconFile = UploadedFile::getInstance($model, 'iconFile');
-
-                if($model->validate() && $model->validateIconFile()) {
-                    $model->save();
+            if ($model->load($request->post()) && $model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
-                }
             } else {
                 return $this->render('create', [
                     'model' => $model,
@@ -181,30 +161,16 @@ class ServiceController extends BaseController
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
                 ];         
-            }else if($model->load($request->post())){
-                $model->iconFile = UploadedFile::getInstance($model, 'iconFile');
-
-                if($model->validate() && $model->validateIconFile()) {
-                    $model->save();
-                    return [
-                        'forceReload' => '#crud-datatable-pjax',
-                        'title' => "Service #" . $id,
-                        'content' => $this->renderAjax('view', [
-                            'model' => $model,
-                        ]),
-                        'footer' => Html::button('Close', ['class' => 'btn btn-default pull-left', 'data-dismiss' => "modal"]) .
-                            Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-                    ];
-                } else {
-                    return [
-                        'title'=> "Update Service #".$id,
-                        'content'=>$this->renderAjax('update', [
-                            'model' => $model,
-                        ]),
-                        'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                            Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
-                    ];
-                }
+            }else if($model->load($request->post()) && $model->save()){
+				return [
+					'forceReload' => '#crud-datatable-pjax',
+					'title' => "Service #" . $id,
+					'content' => $this->renderAjax('view', [
+						'model' => $model,
+					]),
+					'footer' => Html::button('Close', ['class' => 'btn btn-default pull-left', 'data-dismiss' => "modal"]) .
+						Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+				];
             }else{
                  return [
                     'title'=> "Update Service #".$id,
@@ -219,13 +185,8 @@ class ServiceController extends BaseController
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post())) {
-                $model->iconFile = UploadedFile::getInstance($model, 'iconFile');
-
-                if($model->validate() && $model->validateIconFile()) {
-                    $model->save();
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
+            if ($model->load($request->post()) && $model->save()) {
+				return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('update', [
                     'model' => $model,

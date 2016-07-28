@@ -19,7 +19,7 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'iconFile')->fileInput() ?>
+    <?= $form->field($model, 'icon')->textInput() ?>
 
     <?php
     $selectOptions = ['data'=>Service::statusLabels(), 'pluginOptions'=>['allowClear'=>true], 'options'=>['prompt'=>'--Choose One--']];

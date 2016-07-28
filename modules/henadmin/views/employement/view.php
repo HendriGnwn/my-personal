@@ -13,6 +13,7 @@ use app\helpers\DetailViewHelper;
         'attributes' => [
             'id',
             'name',
+			'company',
             'description:ntext',
             'url:url',
             'start_date:date',
@@ -27,6 +28,7 @@ use app\helpers\DetailViewHelper;
                 'value' => $model->getStatusWithStyle(),
                 'format'=>'raw',
             ],
+			'order',
             'created_at:datetime',
             DetailViewHelper::author($model, 'created_by'),
             'updated_at:datetime',

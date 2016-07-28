@@ -1,14 +1,18 @@
 <?php
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use kartik\select2\Select2;
-use yii\jui\DatePicker;
+
 use app\models\Employement;
+use dosamigos\ckeditor\CKEditor;
+use kartik\select2\Select2;
+use yii\helpers\Html;
+use yii\jui\DatePicker;
+use yii\web\JsExpression;
+use yii\web\View;
+use yii\widgets\ActiveForm;
 
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Employement */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $this View */
+/* @var $model Employement */
+/* @var $form ActiveForm */
 ?>
 
 <div class="education-form">
@@ -16,8 +20,13 @@ use app\models\Employement;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+	
+	<?= $form->field($model, 'company')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+			'options' => ['rows'=>6],
+			'preset' => 'advanced',
+	]) ?>
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
@@ -28,7 +37,7 @@ use app\models\Employement;
         'clientOptions' => [
             'changeMonth' => true,
             'changeYear' => true,
-            'onSelect' => new \yii\web\JsExpression('function(dateText, inst) { 
+            'onSelect' => new JsExpression('function(dateText, inst) { 
                      var minReturnDate = $("#employement-start_date").datepicker("getDate"),
                         $returnDate = $("#employement-end_date");
                      minReturnDate.setDate(minReturnDate.getDate() + 1);
@@ -59,6 +68,8 @@ use app\models\Employement;
     <?= $form->field($model, 'employement_status')->widget(Select2::className(), $selectOptions) ?>
 
     <?= $form->field($model, 'status')->widget(Select2::className(), $selectOptions) ?>
+	
+	<?= $form->field($model, 'order')->textInput(['maxlength' => true]) ?>
 
 
     <?php if (!Yii::$app->request->isAjax){ ?>
