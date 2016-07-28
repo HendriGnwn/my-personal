@@ -26,9 +26,9 @@ $this->title = 'Web Developer';
 
 <?= PortfolioWidget::widget() ?>
 
-<?= EducationWidget::widget() ?>
+<?//= EducationWidget::widget() ?>
 
-<?= TestimonialWdiget::widget() ?>
+<?//= TestimonialWdiget::widget() ?>
 
 <?= BlogWidget::widget() ?>
 
