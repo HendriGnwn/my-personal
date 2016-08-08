@@ -26,7 +26,8 @@
         "yiisoft/yii2-imagine": "~2.0.0",
 		"2amigos/yii2-ckeditor-widget" : "*",
 		"mobiledetect/mobiledetectlib": "^2.8",
-		"amilna/yii2-blog": "dev-master"
+		"amilna/yii2-blog": "dev-master",
+        "hendrignwn/yii2-log": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
