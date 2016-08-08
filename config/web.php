@@ -25,6 +25,10 @@ $config = [
 			'class' => 'amilna\blog\Module',
 			'userClass' => 'app\models\User',
 		],
+		'log-module' => [
+            'class' => hendrignwn\log\Module::className(),
+			'layout' => '@app/themes/backend/views/layouts/main',
+        ],
     ],
     'components' => [
         'request' => [
