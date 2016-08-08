@@ -10,7 +10,7 @@ use app\models\ContactForm;
 
 class SiteController extends BaseController
 {
-    public function behaviors()
+	public function behaviors()
     {
         return [
             'access' => [

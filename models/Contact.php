@@ -22,6 +22,8 @@ use yii\helpers\Html;
 class Contact extends BaseActiveRecord
 {
     const STATUS_NEW = 5;
+	const STATUS_ANSWERED = 10;
+	
     /**
      * @inheritdoc
      */
@@ -66,7 +68,12 @@ class Contact extends BaseActiveRecord
 
     public static function statusLabels()
     {
-        return ArrayHelper::merge([self::STATUS_NEW=>'NEW'], parent::statusLabels());
+		$labels = [
+			self::STATUS_NEW=>'NEW',
+			self::STATUS_ANSWERED=>'ANSWERED'
+		];
+		
+        return ArrayHelper::merge($labels, parent::statusLabels());
     }
 
     public function getStatusWithStyle()
@@ -74,6 +81,7 @@ class Contact extends BaseActiveRecord
         if(!parent::getStatusWithStyle()) {
             switch ($this->status) {
                 case self::STATUS_NEW: return Html::label($this->getStatusLabel(), null, ['class'=>'label label-primary']);
+				case self::STATUS_ANSWERED: return Html::label($this->getStatusLabel(), null, ['class'=>'label label-success']);
             }
         }
         return parent::getStatusWithStyle();

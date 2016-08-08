@@ -21,10 +21,18 @@ class PortfolioController extends BaseController
 {
 	public function actionAjaxDetail()
 	{
-		if(Yii::$app->request->isAjax) {
-			return $this->renderAjax('ajax-detail');
-		}
+		try {
+			if(!Yii::$app->request->isAjax) {
+				throw new \yii\base\Exception('Page should be accessible in ajax.');
+			}
 		
-		throw new HttpException(404, 'File not found!.');
+			return $this->renderAjax('ajax-detail');
+			
+		} catch (Exception $ex) {
+			$message = $ex->getMessage();
+			
+			throw new HttpException(403, $message);
+			
+		}
 	}
 }
