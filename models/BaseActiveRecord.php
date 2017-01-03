@@ -27,7 +27,9 @@ class BaseActiveRecord extends ActiveRecord
     public function behaviors()
     {
         return [
-			'hendrignwn\log\behaviors\LoggableBehavior',
+//			[
+//				//'class' => testa\log\behaviors\LogBehavior::className(),
+//			],
             [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [

@@ -26,7 +26,7 @@ $config = [
 			'userClass' => 'app\models\User',
 		],
 		'log-module' => [
-            'class' => hendrignwn\log\Module::className(),
+            'class' => testa\log\Module::className(),
 			'layout' => '@app/themes/backend/views/layouts/main',
         ],
     ],
